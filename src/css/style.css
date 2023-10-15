@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  /*border: 1px solid red;*/
+  text-align: center;
+}
+body {
+  position: relative;
+}
+.container {
+  /*Общий родительский контейнер*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: rgb(168, 168, 235);
+  padding: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.column-line {
+  /*Столбцы с заданиями*/
+  display: flex;
+  flex-direction: column;
+  background-color: #dee2e5;
+  padding: 3px;
+  border-radius: 2px;
+  margin-left: 10px;
+  min-width: 300px;
+  font-size: larger;
+}
+
+.column-line:first-child {
+  /*Первый Столбец с заданиями*/
+  margin-left: 0;
+}
+
+.column-line_header {
+  /*Заголовок столбца с карточками заданий*/
+  color: rgb(0, 0, 0);
+}
+
+/*карточка с задачей*/
+.column-line_item {
+  background-color: rgb(255, 255, 255);
+  border-radius: 2px;
+  margin-top: 10px;
+  position: relative;
+  padding-top: 5px;
+}
+.column-line_item:hover {
+  cursor: grab;
+}
+
+.dragget {
+  opacity: .1;
+}
+
+.column-line_item:hover .column-line_item__cross-close {
+  opacity: 1;
+}
+
+/*Заголовок карточка с задачей*/
+.column-line_item-header {
+  font-size: smaller;
+  font-weight: 600;
+  position: relative;
+  right: 23%;
+  bottom: 5px;
+  display: inline;
+}
+.column-line_item-header:hover {
+  cursor: default;
+}
+/* Закрыть карточку*/
+.column-line_item__cross-close {
+  position: absolute;
+  z-index: 1;
+  left: 90%;
+  top: 2px;
+  height: 20px;
+  width: 20px;
+  background-image: url("../img/close.png");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+}
+.column-line_item__cross-close {
+  cursor: default;
+}
+
+.column-line_item__cross-close:hover {
+  opacity: 1;
+}
+
+/* Текстовый контент карточки*/
+.column-line_item_content {
+  resize: vertical;
+  text-align: start;
+  font-size: 15px;
+  border: none;
+  width: 95%;
+  background-color: #f3f3ff;
+}
+
+/*Окно отображения прикрепленных файлов*/
+.filePad {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+/*Раздел отображения прикрепленных файлов*/
+.fileItems-pad {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 300px;
+}
+/*Раздел отображения прикрепленных картинок*/
+.imgItems-pad {
+  display: flex;
+  flex-direction: column;
+}
+
+/*Элемент прикрепленного файла - общий и файла и картинки*/
+.filePadItem {
+  width: 100%;
+}
+
+/*Ссылка-обертка элемента Файл*/
+.fileItems-pad-Link {
+  font-size: 10px;
+  margin-right: 2px;
+}
+/*Элемент - файл*/
+.fileItems {
+  position: relative;
+  background-image: url("../img/file.png");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 40px;
+}
+
+.imgItems-pad-Link {
+  position: relative;
+}
+/*Элемент - картинка*/
+.imagesItem {
+  width: 100%;
+  margin-top: 3px;
+}
+
+/*иконка Корзины над элементом файла*/
+.deleteFile {
+  position: absolute;
+  background-image: url("../img/deleteFile.png");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/*иконка Корзины над элементом картинка*/
+.deleteImage {
+  position: absolute;
+  background-image: url("../img/deleteFile.png");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.deleteImage:hover, .deleteFile:hover{
+  width: 30px;
+  height: 30px;
+}
+
+/* консоль карточки*/
+.console {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 12px;
+}
+
+.console:hover {
+  cursor: default;
+}
+
+/* общие стили консоли карточки*/
+.comments,
+.like,
+.dizlike,
+.attach,
+.rename {
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+  margin-left: 3px;
+}
+
+/* комментарии карточки*/
+.comments,
+.like,
+.dizlike,
+.attach {
+  background-image: url("../img/comments.gif");
+}
+/* Лайк карточки*/
+.like {
+  background-image: url("../img/Like.png");
+}
+.like:hover {
+  cursor: default;
+}
+
+/* ДизЛайк карточки*/
+.dizlike {
+  background-image: url("../img/DizLike.png");
+}
+
+.dizlike:hover {
+  cursor: default;
+}
+.attach {
+  background-image: url("../img/skrepa.png");
+  position: relative;
+  z-index: 1;
+}
+.attach:hover {
+  cursor: default;
+}
+
+.file {
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+ position: absolute;
+  z-index: -1;
+  left: -100px;
+}
+
+.rename {
+  background-image: url("../img/rename.png");
+  position: absolute;
+  top: 3px;
+}
+.rename:hover {
+  cursor: default;
+}
+
+/*Кнопка Добавить карточку*/
+.button_add {
+  margin: 5px;
+  width: 45%;
+}
+
+.button_add:hover {
+  background-color: rgb(1, 177, 1);
+  border-radius: 5px;
+}
+
+.renameCard {
+  width: 170px;
+  height: 50px;
+  font-size: 3px;
+  padding-top: 15px;
+  background-color: bisque;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 5;
+  border: 1px solid rgb(141, 141, 141);
+}
+.renameCardCcontent,
+.renameCard_Ok,
+.renameCard_Close {
+  font-size: 12px;
+}
+
+
+
+.cover-file {
+  position: absolute;
+}
