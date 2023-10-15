@@ -96,6 +96,7 @@ class MyTrello {
   }
 
   loadFromLocalStorage() {
+if(!localStorage.getItem("database")) return;
     let getDataBase = localStorage.getItem("database");
     let dataBase = JSON.parse(getDataBase);
     const columnLine = document.querySelectorAll(".column-line");
